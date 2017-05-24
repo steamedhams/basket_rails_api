@@ -16,8 +16,7 @@ class ListsController < ApplicationController
   # POST /lists
   def create
     @list = List.new(list_params)
-    logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
-    logger.debug "creating"
+
     if @list.save
       render json: @list, status: :created, location: @list
     else
