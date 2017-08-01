@@ -3,7 +3,7 @@ class ListItemsController < ApplicationController
 
   # GET /list_items
   def index
-    @list_items = ListItem.all
+    @list_items = ListItem.where.not(list_id: null)
 
     render json: @list_items
   end
